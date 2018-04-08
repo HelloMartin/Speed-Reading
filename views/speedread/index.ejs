@@ -1,0 +1,45 @@
+<%  include ../partials/header %>
+
+<div class="container">
+
+  <h1 class="text-center">
+    <span class="bio">Sp</span>eed <span class="bio">Rea</span>ding
+  </h1>
+
+  <div class="form-group">
+    <textarea id="textarea" class="form-control" rows="5" id="comment">Hello World!</textarea>
+  </div>
+  <button type="button" class="btn btn-primary btn-lg btn-block" onClick="convertBionic()">Convert</button>
+
+  <div class="card" style="width: 100%;">
+    <div class="card-body">
+      <h5 class="card-title">Thanks for using your converter</h5>
+      <h6 class="card-subtitle mb-2 text-muted">there goes your text..</h6>
+      <p id="p2"></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+convertBionic: function convertBionic(){
+  var str = document.getElementById('textarea').value; // convert value to string
+  var arr = str.split(" "); // split string to each word
+
+  arr.forEach((el) => { // for each
+
+    var onethird = Math.ceil(el.length / 3);
+    var bold = el.slice(0, onethird);
+    var normal = el.slice(onethird);
+    var finalstr = '<span class="bio">' + bold + '</span>' + normal + ' ';
+
+    console.log(finalstr);
+    console.log('-----------');
+
+    w = document.getElementById('p2').innerHTML;
+    document.getElementById('p2').innerHTML = w + finalstr;
+  });
+  }
+</script>
+
+
+<%  include ../partials/footer %>

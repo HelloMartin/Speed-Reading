@@ -15,7 +15,7 @@
     <div class="card-body">
       <h5 class="card-title">Thanks for using your converter</h5>
       <h6 class="card-subtitle mb-2 text-muted">there goes your text..</h6>
-      <p id="p2"></p>
+      <p id="bioDisplay"></p>
     </div>
   </div>
 </div>
@@ -35,8 +35,8 @@ convertBionic: function convertBionic(){
     console.log(finalstr);
     console.log('-----------');
 
-    w = document.getElementById('p2').innerHTML;
-    document.getElementById('p2').innerHTML = w + finalstr;
+    w = document.getElementById('bioDisplay').innerHTML;
+    document.getElementById('bioDisplay').innerHTML = w + finalstr;
   });
   }
 </script>

@@ -21,23 +21,25 @@
 </div>
 
 <script type="text/javascript">
-convertBionic: function convertBionic(){
-  var str = document.getElementById('textarea').value; // convert value to string
-  var arr = str.split(" "); // split string to each word
+  function convertBionic(){
+    let textarea = document.getElementById('textarea'); // select textarea
+    let bioDisplay = document.getElementById('bioDisplay'); // select display paragrath
+    let str = textarea.value; // convert value to string
+    let arr = str.split(" "); // split string to each word
 
-  arr.forEach((el) => { // for each
+    bioDisplay.innerHTML = ''; // set bioDisplay no empty string
 
-    var onethird = Math.ceil(el.length / 3);
-    var bold = el.slice(0, onethird);
-    var normal = el.slice(onethird);
-    var finalstr = '<span class="bio">' + bold + '</span>' + normal + ' ';
+    console.log(arr);
 
-    console.log(finalstr);
-    console.log('-----------');
+    arr.forEach((word) => { // for each
 
-    w = document.getElementById('bioDisplay').innerHTML;
-    document.getElementById('bioDisplay').innerHTML = w + finalstr;
-  });
+      let onethird = Math.ceil(word.length / 3); // get one third of word
+      let bold = word.slice(0, onethird); // bold up first third of word
+      let normal = word.slice(onethird); // get rest of word
+      let finalstr = '<span class="bio">' + bold + '</span>' + normal + ' '; // assemble final string
+
+      bioDisplay.innerHTML = bioDisplay.innerHTML + finalstr; // assemble final display
+    });
   }
 </script>
 
